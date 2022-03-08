@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Before we install anything check it's not already installed
+
+# Install AWS CLI
+# TODO: could we do any cleanup?
+# TODO: Maybe verify integrity/authenticity of the zip file - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+# Install Pulumi
+curl -fsSL https://get.pulumi.com | sh
