@@ -11,6 +11,12 @@ if ! command -v aws &> /dev/null; then
     ./aws/install
 fi
 
+# Install eksctl
+if ! command -v eksctl &> /dev/null; then
+    curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+    mv /tmp/eksctl /usr/local/bin
+fi
+
 # Install Pulumi
 if ! command -v pulumi &> /dev/null; then
     curl -fsSL https://get.pulumi.com | sh

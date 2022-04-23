@@ -4,3 +4,7 @@
 cp .customize_environment $HOME/.customize_environment
 
 # TODO: run it
+
+# For .bashrc
+# export EDITOR='nano'
+# alias k='kubectl'
