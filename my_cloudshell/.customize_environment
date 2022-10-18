@@ -1,23 +1,22 @@
 #!/bin/bash
 
-# Before we install anything check it's not already installed
-
 # Install AWS CLI
 if ! command -v aws &> /dev/null; then
-    # TODO: could we do any cleanup?
     # TODO: Maybe verify integrity/authenticity of the zip file - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
     unzip awscliv2.zip
-    ./aws/install
+    sudo ./aws/install
+    rm -rf aws awscliv2.zip
 fi
 
 # Install eksctl
 if ! command -v eksctl &> /dev/null; then
     curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
-    mv /tmp/eksctl /usr/local/bin
+    sudo mv /tmp/eksctl /usr/local/bin
 fi
 
 # Install Pulumi
+# Below not seeing if Pulumi is already installed
 if ! command -v pulumi &> /dev/null; then
     curl -fsSL https://get.pulumi.com | sh
 fi
