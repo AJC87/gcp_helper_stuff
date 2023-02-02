@@ -9,8 +9,17 @@ if ! command -v aws &> /dev/null; then
     rm -f aws awscliv2.zip
 fi
 
+# Install TypeScript (needed for CDK)
+# TODO: check this works
+if ! command -v tsc &> /dev/null; then
+    npm -g install typescript
+fi
+
 # Install CDK
-# TODO: fill this in
+# TODO: check this works
+if ! command -v cdk &> /dev/null; then
+    npm install -g aws-cdk
+fi
 
 # Install AWS SAM
 if ! command -v sam &> /dev/null; then
@@ -19,6 +28,11 @@ if ! command -v sam &> /dev/null; then
     unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
     sudo ./sam-installation/install
     rm -f aws-sam-cli-linux-x86_64.zip
+fi
+
+# Install LocalStack
+if ! command -v localstack &> /dev/null; then
+    python3 -m pip install localstack
 fi
 
 # Install eksctl
