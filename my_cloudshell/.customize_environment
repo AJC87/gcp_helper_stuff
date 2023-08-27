@@ -46,3 +46,6 @@ fi
 if ! command -v pulumi &> /dev/null; then
     curl -fsSL https://get.pulumi.com | sh
 fi
+
+# Install .NET
+# TODO: DO THIS!
