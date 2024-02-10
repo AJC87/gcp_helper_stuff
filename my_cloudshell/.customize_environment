@@ -16,7 +16,6 @@ if ! command -v tsc &> /dev/null; then
 fi
 
 # Install CDK
-# TODO: check this works
 if ! command -v cdk &> /dev/null; then
     npm install -g aws-cdk
 fi
@@ -46,6 +45,3 @@ fi
 if ! command -v pulumi &> /dev/null; then
     curl -fsSL https://get.pulumi.com | sh
 fi
-
-# Install .NET
-# TODO: DO THIS!
